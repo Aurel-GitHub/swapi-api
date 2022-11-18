@@ -14,3 +14,8 @@ export const init = async () => {
   server.start();
   console.log(`server running on: ${server.info.uri}`);
 };
+
+process.on("unhandledRejection", (err) => {
+  console.log(err);
+  process.exit(0);
+});
