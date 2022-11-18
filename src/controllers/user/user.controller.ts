@@ -1,9 +1,8 @@
+import { token } from "./../../constants/token";
 import { isValidLogin } from "./../../utils/validators/login.validator";
 import { ResponseToolkit, ResponseObject, Request } from "@hapi/hapi";
 import { IResponse } from "../../interfaces";
 
-const token: string =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikx1a2UiLCJpYXQiOjE1MTYyMzkwMjJ9.lipSZVc8hvCTMP6sL-g-jDZ899ig3S8ZafDeM6JNiRM";
 export const login = async (
   request: Request,
   hapi: ResponseToolkit
