@@ -1,8 +1,4 @@
-import { ISpecies } from "./../interfaces/i-species";
-import { IPlanets } from "./../interfaces/i-planets";
-import { IPeoples } from "./../interfaces/i-peoples";
-import axios from "axios";
-import { IFilms, IStarship, IVehicles } from "../interfaces";
+import axios, { AxiosStatic } from "axios";
 
 export class SwapiService {
   private static baseUrl = "https://swapi.dev/api";
@@ -16,30 +12,33 @@ export class SwapiService {
    */
   public static async getObject(
     type: string,
-    id: number | null,
-    isWookieLangSelected: boolean
-  ): Promise<any> {
+    id: string | undefined,
+    isWookieLangSelected: string
+  ): Promise<AxiosStatic> {
     return await axios
       .get(
-        `${this.baseUrl}/${type}/${id !== null ? id + "/" : ""}${
-          isWookieLangSelected ? "/?format=wookiee" : ""
+        `${this.baseUrl}/${type}/${id !== undefined ? Number(id) + "/" : ""}${
+          Boolean(Number(isWookieLangSelected)) ? "/?format=wookiee" : ""
         }`
       )
       .then((res) => res.data)
       .catch((error: Error) => console.error(error));
   }
 
-  private static async globalSearch(
+  /**
+   *
+   * @param searchType
+   * @param name
+   * @returns
+   */
+  public static async getObjectByName(
     searchType: string,
-    params: string,
-    isWookieLangSelected: boolean
-  ): Promise<any[]> {
+    name: string
+  ): Promise<AxiosStatic> {
+    console.log("URI", `${this.baseUrl}/${searchType}/?search=${name}`);
     return await axios
-      .get(
-        `${this.baseUrl}/${searchType}/${params && "?search=" + params}/${
-          isWookieLangSelected && "?format=wookiee"
-        }`
-      )
-      .then((r) => r.data["results"]);
+      .get(`${this.baseUrl}/${searchType}/?search=${name}`)
+      .then((res) => res.data)
+      .catch((error: Error) => console.error(error));
   }
 }

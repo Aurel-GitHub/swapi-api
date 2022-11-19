@@ -7,4 +7,9 @@ export const swapiRoute = (server: Server) => {
     path: "/{type}/{isWookieSelected}/{id?}",
     handler: SwapiController.search,
   });
+  server.route({
+    method: "GET",
+    path: "/search/{type}/{name}",
+    handler: SwapiController.searchByName,
+  });
 };
