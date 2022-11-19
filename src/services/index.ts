@@ -1,1 +1,1 @@
-export * from "./swapi.service";
+export * from './swapi.service';

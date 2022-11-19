@@ -1,7 +1,7 @@
-import axios, { AxiosStatic } from "axios";
+import axios, { AxiosStatic } from 'axios';
 
 export class SwapiService {
-  private static baseUrl = "https://swapi.dev/api";
+  private static baseUrl = 'https://swapi.dev/api';
 
   /**
    *
@@ -10,17 +10,9 @@ export class SwapiService {
    * @param isWookieLangSelected
    * @returns
    */
-  public static async getObject(
-    type: string,
-    id: string | undefined,
-    isWookieLangSelected: string
-  ): Promise<AxiosStatic> {
+  public static async getObject(type: string, id: string | undefined, isWookieLangSelected: string): Promise<AxiosStatic> {
     return await axios
-      .get(
-        `${this.baseUrl}/${type}/${id !== undefined ? Number(id) + "/" : ""}${
-          Boolean(Number(isWookieLangSelected)) ? "/?format=wookiee" : ""
-        }`
-      )
+      .get(`${this.baseUrl}/${type}/${id !== undefined ? Number(id) + '/' : ''}${Boolean(Number(isWookieLangSelected)) ? '/?format=wookiee' : ''}`)
       .then((res) => res.data)
       .catch((error: Error) => console.error(error));
   }
@@ -31,10 +23,7 @@ export class SwapiService {
    * @param name
    * @returns
    */
-  public static async getObjectByName(
-    searchType: string,
-    name: string
-  ): Promise<AxiosStatic> {
+  public static async getObjectByName(searchType: string, name: string): Promise<AxiosStatic> {
     return await axios
       .get(`${this.baseUrl}/${searchType}/?search=${name}`)
       .then((res) => res.data)
