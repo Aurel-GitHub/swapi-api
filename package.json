@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e ts --exec \"npm run buildrun\" ",
-    "build": "tsc",
-    "buildrun": "npm run build && node ./dist/index.js"
+    "dev": "nodemon -e ts --exec \"npm run build\" ",
+    "build": "tsc && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
