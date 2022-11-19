@@ -28,7 +28,6 @@ export class SwapiController {
     res: ResponseToolkit
   ): Promise<ResponseObject> {
     const { type, name } = req.params;
-    console.log("req.params", type, name);
     try {
       if (!type && !name) {
         return res.response("Recherche incorrecte").code(400);

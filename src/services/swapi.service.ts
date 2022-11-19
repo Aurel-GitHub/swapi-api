@@ -35,7 +35,6 @@ export class SwapiService {
     searchType: string,
     name: string
   ): Promise<AxiosStatic> {
-    console.log("URI", `${this.baseUrl}/${searchType}/?search=${name}`);
     return await axios
       .get(`${this.baseUrl}/${searchType}/?search=${name}`)
       .then((res) => res.data)
