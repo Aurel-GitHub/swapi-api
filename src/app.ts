@@ -1,11 +1,14 @@
-import { userRoute } from "./routes/user/user.routes";
-import { Server } from "@hapi/hapi";
-import { swapiRoute } from "./routes/swapi/swapi.routes";
+import { userRoute } from './routes/user/user.routes';
+import { Server } from '@hapi/hapi';
+import { swapiRoute } from './routes/swapi/swapi.routes';
 
 export const init = async () => {
   const server: Server = new Server({
     port: 5000,
-    host: "localhost",
+    host: 'localhost',
+    routes: {
+      cors: true,
+    },
   });
 
   swapiRoute(server);
@@ -15,7 +18,7 @@ export const init = async () => {
   console.log(`server running on: ${server.info.uri}`);
 };
 
-process.on("unhandledRejection", (err) => {
+process.on('unhandledRejection', (err) => {
   console.log(err);
   process.exit(0);
 });
