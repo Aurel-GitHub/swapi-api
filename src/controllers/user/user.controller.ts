@@ -4,6 +4,11 @@ import { ResponseToolkit, ResponseObject, Request } from '@hapi/hapi';
 import { IResponse } from '../../interfaces';
 
 export class UserController {
+  /**
+   * @param req
+   * @param res
+   * @returns
+   */
   public static async login(req: Request, res: ResponseToolkit): Promise<ResponseObject> {
     try {
       const payload: string[] = Object.values(req.payload);

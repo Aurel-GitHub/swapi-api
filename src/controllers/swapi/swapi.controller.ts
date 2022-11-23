@@ -20,6 +20,11 @@ export class SwapiController {
     }
   }
 
+  /**
+   * @param req
+   * @param res
+   * @returns
+   */
   public static async searchByName(req: Request, res: ResponseToolkit): Promise<ResponseObject> {
     const { type, name } = req.params;
     try {

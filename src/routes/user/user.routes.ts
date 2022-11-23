@@ -1,7 +1,10 @@
 import { Server } from '@hapi/hapi';
 import { UserController } from '../../controllers/user/user.controller';
 
-export const userRoute = (server: Server) => {
+/**
+ * @param server
+ */
+export const userRoute = (server: Server): void => {
   server.route({
     method: 'POST',
     path: '/login',

@@ -1,7 +1,10 @@
 import { Server } from '@hapi/hapi';
 import { SwapiController } from '../../controllers/swapi/swapi.controller';
 
-export const swapiRoute = (server: Server) => {
+/**
+ * @param server
+ */
+export const swapiRoute = (server: Server): void => {
   server.route({
     method: 'GET',
     path: '/{type}/{isWookieSelected}/{id?}',

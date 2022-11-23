@@ -1,10 +1,9 @@
 import axios, { AxiosStatic } from 'axios';
 
 export class SwapiService {
-  private static baseUrl = 'https://swapi.dev/api';
+  private static baseUrl: string = 'https://swapi.dev/api';
 
   /**
-   *
    * @param type
    * @param id
    * @param isWookieLangSelected
@@ -18,7 +17,6 @@ export class SwapiService {
   }
 
   /**
-   *
    * @param searchType
    * @param name
    * @returns
