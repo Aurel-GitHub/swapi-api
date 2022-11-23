@@ -14,7 +14,7 @@ export class UserController {
         };
         return res.response(response).code(200);
       } else {
-        return res.response("Cet utilisateur n'est pas inscrit au registre de la Cantina").code(400);
+        return res.response('This user is not registered at the Cantina').code(400);
       }
     } catch (error: any) {
       return res.response(error).code(500);
